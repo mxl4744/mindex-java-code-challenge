@@ -83,6 +83,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Compensation createComp(Compensation comp) {
+		Employee employee = read(comp.getEmployee().getEmployeeId());
+	    comp.setEmployee(employee);
 		return compRepository.insert(comp);
 	}
     
